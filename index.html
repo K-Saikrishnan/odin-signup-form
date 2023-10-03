@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Sign Up page made for The Odin Project" />
+    <title>Sign Up | Odin</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/odin-logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <article id="cover">
+      <section aria-hidden="true"></section>
+
+      <section id="logo">
+        <img src="assets/odin-logo.png" alt="The Odin Project Logo" />
+        <h1>Odin</h1>
+      </section>
+
+      <footer>
+        Photo by <a href="https://unsplash.com/@haliewestphoto">Halie West</a> on
+        <a href="https://unsplash.com">Unsplash</a>
+      </footer>
+    </article>
+
+    <article id="sign-up">
+      <section id="pitch">
+        <p>
+          This is not a real online service! You know you need something like this in your life to help you realize your
+          deepest dreams.
+        </p>
+        <p>Sign up <em>now</em> to get started.</p>
+        <p>You <em>know</em> you want to.</p>
+      </section>
+      <section id="form">
+        <h2>Let's do this!</h2>
+
+        <form action="#" id="sign-up-form" method="post">
+          <field>
+            <label for="first-name">First Name</label>
+            <input type="text" autocomplete="name" id="first-name" name="first-name" required />
+          </field>
+
+          <field>
+            <label for="last-name">Last Name</label>
+            <input type="text" autocomplete="name" id="last-name" name="last-name" required />
+          </field>
+
+          <field>
+            <label for="email">Email</label>
+            <input type="email" autocomplete="email" id="email" name="email" required />
+          </field>
+          <field>
+            <label for="phone">Phone Number</label>
+            <input type="tel" autocomplete="tel" minlength="10" id="phone" name="phone" required />
+          </field>
+          <field>
+            <label for="password">Password</label>
+            <input type="password" autocomplete="new-password" id="password" name="password" required />
+          </field>
+
+          <field>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" autocomplete="new-password" id="confirm-password" name="confirm-password" required />
+            <span id="confirm-password-error"></span>
+          </field>
+        </form>
+      </section>
+
+      <button type="submit" form="sign-up-form">Create Account</button>
+      <p id="login-text">Already have an account? <a href="#">Log in</a></p>
+    </article>
+  </body>
+</html>
