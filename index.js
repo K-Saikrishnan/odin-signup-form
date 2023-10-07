@@ -12,7 +12,8 @@ function validatePassword(e) {
     addErrorClass(field);
     setErrorMessage(`* ${ERROR_MESSAGE}`);
   } else {
-    field.setCustomValidity('');
+    password.setCustomValidity('');
+    confirmPassword.setCustomValidity('');
     removeErrorClassInPasswordFields();
     setErrorMessage();
   }
@@ -35,3 +36,7 @@ function setErrorMessage(msg = '') {
 
 confirmPassword.addEventListener('input', validatePassword);
 password.addEventListener('input', validatePassword);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  location.reload();
+});
