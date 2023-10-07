@@ -3,6 +3,7 @@
 $btn-color: #596d48;
 $bg-color: #f9fafb;
 $input-focus-color: #51cbee;
+$error-border: 1px solid red;
 
 @mixin flex($direction: row, $justify, $align, $gap: 0) {
   display: flex;
@@ -31,9 +32,9 @@ body {
   min-height: 100vh;
 }
 
-article#cover {
+#cover {
   @include flex(column, space-between, center);
-  background-image: url(assets/cover.jpg);
+  background-image: url(assets/cover.avif);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,7 +71,7 @@ article#cover {
   }
 }
 
-article#sign-up {
+#sign-up {
   align-self: center;
   width: 100%;
 
@@ -83,10 +84,10 @@ article#sign-up {
 
     p {
       line-height: 1.3;
-    }
 
-    p:last-child {
-      margin-top: 1rem;
+      &:last-child {
+        margin-top: 1rem;
+      }
     }
   }
 
@@ -157,6 +158,19 @@ article#sign-up {
   }
 }
 
+.error {
+  &,
+  :focus {
+    outline: $error-border !important;
+    border: $error-border !important;
+  }
+}
+
+#error-msg {
+  color: red;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 930px) {
   body {
     width: 100vw;
@@ -168,7 +182,7 @@ article#sign-up {
     grid-template-columns: unset !important;
   }
 
-  article#cover {
-    height: 300px !important;
+  #cover {
+    height: 300px;
   }
 }

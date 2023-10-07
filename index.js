@@ -1,27 +1,37 @@
 const form = document.getElementById('sign-up-form');
 const password = document.getElementById('password');
+const errorMessage = document.getElementById('error-msg');
 const confirmPassword = document.getElementById('confirm-password');
-confirmPassword.disabled = true;
 
 const ERROR_MESSAGE = 'Passwords do not match';
 
 function validatePassword(e) {
   const field = e.target;
-  if (confirmPassword.value && password.value !== confirmPassword.value) field.setCustomValidity(ERROR_MESSAGE);
-  else field.setCustomValidity('');
+  if (confirmPassword.value && password.value !== confirmPassword.value) {
+    field.setCustomValidity(ERROR_MESSAGE);
+    addErrorClass(field);
+    setErrorMessage(`* ${ERROR_MESSAGE}`);
+  } else {
+    field.setCustomValidity('');
+    removeErrorClassInPasswordFields();
+    setErrorMessage();
+  }
 
   field.reportValidity();
 }
 
-function handlePasswordFields(e) {
-  if (e.target.value) {
-    confirmPassword.disabled = false;
-    validatePassword(e);
-  } else {
-    confirmPassword.disabled = true;
-    confirmPassword.value = '';
-  }
+function addErrorClass(field) {
+  field.classList.add('error');
+}
+
+function removeErrorClassInPasswordFields() {
+  password.classList.remove('error');
+  confirmPassword.classList.remove('error');
+}
+
+function setErrorMessage(msg = '') {
+  errorMessage.innerText = msg;
 }
 
 confirmPassword.addEventListener('input', validatePassword);
-password.addEventListener('input', handlePasswordFields);
+password.addEventListener('input', validatePassword);
